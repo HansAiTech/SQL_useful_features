@@ -52,8 +52,8 @@ Verificar para asegurarse de que ningún afiliado en un plan de seguro tenga dat
 - Continuar sin reemplazar los valores faltantes  
 - Definir un valor predeterminado  
 - Calcular el valor en función de las filas vecinas  
-- + Filas de grupo por algunos criterios y valor promedio usando filas cercanas   
-- + Ordenar las filas en algún orden para que las filas similares estén una al lado de la otra, y luego copie el valor de la columna faltante de la fila anterior / fila posterior calcular el valor basado en la regresión.  
+  + Filas de grupo por algunos criterios y valor promedio usando filas cercanas   
+  + Ordenar las filas en algún orden para que las filas similares estén una al lado de la otra, y luego copie el valor de la columna faltante de la fila anterior / fila posterior calcular el valor basado en la regresión.  
 
 ### **Función Case**
 

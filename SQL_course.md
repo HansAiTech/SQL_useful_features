@@ -67,6 +67,8 @@ Verificar para asegurarse de que ningún afiliado en un plan de seguro tenga dat
 - Establecer el límite inferior (media - 3t * std-dev)
 
 ### **Función Case**
+
+Ejemplo 1)
 ```sql
 SELECT 
 *,
@@ -77,7 +79,35 @@ CASE WHEN purch_amt BETWEEN 0 AND 1000 THEN 'Bronze'
      END AS ranking_ventas
 FROM salesman.orders;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232181984-14fdde5e-7bb1-470f-9329-e48a26405a84.png"></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232181984-14fdde5e-7bb1-470f-9329-e48a26405a84.png"></p>    
+
+Ejemplo 2)
+```sql
+SELECT *,
+CASE WHEN ord_date >= '2012-08-08' AND ord_date < '2012-08-02' THEN 'Periodo 1'
+	 WHEN ord_date >= '2012-08-02' AND ord_date <= '2012-09-01' THEN 'Periodo 2'
+	 WHEN ord_date > '2012-09-01' AND ord_date <= '2012-11-01' THEN 'Periodo 3'
+     ELSE 'Sin periodo'
+     END AS ranking_periodo
+FROM salesman.orders;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232182299-4dfc4599-dbfa-4acb-a02a-24d748dcb778.png"></p>  
+
+```sql
+SELECT
+CASE WHEN ord_date >= '2012-06-01' AND ord_date < '2012-08-02' THEN 'Periodo 1'
+	 WHEN ord_date >= '2012-08-02' AND ord_date <= '2012-09-01' THEN 'Periodo 2'
+	 WHEN ord_date > '2012-09-01' AND ord_date <= '2012-11-01' THEN 'Periodo 3'
+     ELSE 'Sin periodo'
+     END AS ranking_periodo,
+     SUM(purch_amt) as ventas
+FROM salesman.orders
+GROUP BY ranking_periodo
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232228548-6d16056e-cc51-4247-9bf9-21fd0350740b.png"></p>  
+
+
+
 
 ### **Función Concat**
 

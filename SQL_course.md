@@ -12,13 +12,13 @@
 ## Análisis Exploratorio
 1) EDA  
 _¿Por qué explorar datos?_     
-- Ayuda a comprender la calidad de datos  
-- Identificar valores inusuales o inesperados  
-- Buscar valores inusuales  
-- Busquedatos inconsistentes, especialmente con respecto a las reglas comerciales  
-- Comprobar la distribución de los datos, forma  
-- Entender subgrupos usando histogramas  
-- Verificar correlaciones entre variables, usando el Coeficinete de correlación de Pearson    
+  - Ayuda a comprender la calidad de datos  
+  - Identificar valores inusuales o inesperados  
+  - Buscar valores inusuales  
+  - Busquedatos inconsistentes, especialmente con respecto a las reglas comerciales  
+  - Comprobar la distribución de los datos, forma  
+  - Entender subgrupos usando histogramas  
+  - Verificar correlaciones entre variables, usando el Coeficinete de correlación de Pearson    
 
 ### **Función Case**
 

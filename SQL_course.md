@@ -11,7 +11,7 @@
 
 ## Análisis Exploratorio
 1) EDA  
-- ¿Por qué explorar datos?   
+_¿Por qué explorar datos?_     
 - Ayuda a comprender la calidad de datos  
 - Identificar valores inusuales o inesperados  
 - Buscar valores inusuales  

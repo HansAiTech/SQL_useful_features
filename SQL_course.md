@@ -60,7 +60,7 @@ Verificar para asegurarse de que ningún afiliado en un plan de seguro tenga dat
 - Columnas numéricas: el rango de valores está dentro de lo esperado, busque valores atípicos,calcule STDDEV    
 - Texto: si es categórico => debe ser una pequeña cantidad de valores distintos, si es en gran medida único => los valores deben estar cerca del número de filas en el conjunto de datos, verifique la longitud y busque valores inusualmente largos o cortos (verifique al menos 10 superiores/ valores atípicos más bajos)  
 
-**Comprobación 
+**Comprobación de desviación estándar**  
 - Calcular la media de una columna
 - Calcular la desviacipon estándar
 - Establecer el límite superior (media + 3 * desviación estándar)

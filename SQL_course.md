@@ -41,9 +41,19 @@ SELECT * FROM empleados WHERE (edad < 0) AND (edad >40)
 SELECT * FROM store_sales WHERE empleado_turno >10 OR empleado_turno <0
 ```
 
-**Comprobación de datos inconsistentes**
-- Comprobación de código postal
-- Código postal (010-027) están en Massachusetts
+**Comprobación de datos inconsistentes**  
+- Comprobación de código postal  
+- Código postal (010-027) están en Massachusetts  
+
+**Lógica de negocios**
+Verificar para asegurarse de que ningún afiliado en un plan de seguro tenga datos de inscripción anteriores a la fecha en que se creó el plan la fecha de inicio del empleado no puede ser anterior a la fecha de inicio de la empresa, etc.  
+
+**Imputación de valores faltantes**    
+- Continuar sin reemplazar los valores faltantes  
+- Definir un valor predeterminado  
+- Calcular el valor en función de las filas vecinas  
+- + Filas de grupo por algunos criterios y valor promedio usando filas cercanas   
+- + Ordenar las filas en algún orden para que las filas similares estén una al lado de la otra, y luego copie el valor de la columna faltante de la fila anterior / fila posterior calcular el valor basado en la regresión.  
 
 ### **Función Case**
 

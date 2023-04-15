@@ -20,7 +20,7 @@ _¿Por qué explorar datos?_
   - Entender subgrupos usando histogramas  
   - Verificar correlaciones entre variables, usando el Coeficinete de correlación de Pearson    
 
-2) EDA  
+2) Comprobaciones de calidad de datos
 _¿Por qué chequear datos?_  
   - Valores faltantes
   - Valores fuera de rango esperado (edades menores a 0 mayores a 120, etc)
@@ -28,6 +28,12 @@ _¿Por qué chequear datos?_
   - Valores mal formados (nombres y descripciones truncados, fecha, etc)
   - Valors que violan las reglas comerciales (total del pedido > límite de crédito del cliente)
   - Valores incoherentes entre tablas, como ID de cliente
+
+### Tipos de controles de calidad
+** Comprobación de valores faltantes**
+```sql
+SELECT * FROM store_values FROM units_sold IS NULL
+```
 
 ### **Función Case**
 

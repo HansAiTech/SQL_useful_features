@@ -91,7 +91,7 @@ CASE WHEN ord_date >= '2012-08-08' AND ord_date < '2012-08-02' THEN 'Periodo 1'
      END AS ranking_periodo
 FROM salesman.orders;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232182299-4dfc4599-dbfa-4acb-a02a-24d748dcb778.png"></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232229034-89761de6-4c17-4764-bc2d-3e3b1b3d64c6.png"></p>  
 
 ```sql
 SELECT

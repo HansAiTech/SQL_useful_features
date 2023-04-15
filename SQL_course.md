@@ -35,6 +35,16 @@ _¿Por qué chequear datos?_
 SELECT * FROM store_values FROM units_sold IS NULL
 ```
 
+**Valores fuera de rango**
+```sql
+SELECT * FROM empleados WHERE (edad < 0) AND (edad >40)
+SELECT * FROM store_sales WHERE empleado_turno >10 OR empleado_turno <0
+```
+
+**Comprobación de datos inconsistentes**
+- Comprobación de código postal
+- Código postal (010-027) están en Massachusetts
+
 ### **Función Case**
 
 ### **Función Concat**

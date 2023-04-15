@@ -20,6 +20,15 @@ _¿Por qué explorar datos?_
   - Entender subgrupos usando histogramas  
   - Verificar correlaciones entre variables, usando el Coeficinete de correlación de Pearson    
 
+2) EDA  
+_¿Por qué chequear datos?_  
+  - Valores faltantes
+  - Valores fuera de rango esperado (edades menores a 0 mayores a 120, etc)
+  - Valores únicos
+  - Valores mal formados (nombres y descripciones truncados, fecha, etc)
+  - Valors que violan las reglas comerciales (total del pedido > límite de crédito del cliente)
+  - Valores incoherentes entre tablas, como ID de cliente
+
 ### **Función Case**
 
 ### **Función Concat**

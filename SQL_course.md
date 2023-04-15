@@ -67,6 +67,17 @@ Verificar para asegurarse de que ningún afiliado en un plan de seguro tenga dat
 - Establecer el límite inferior (media - 3t * std-dev)
 
 ### **Función Case**
+```sql
+SELECT 
+*,
+CASE WHEN purch_amt BETWEEN 0 AND 1000 THEN 'Bronze'
+     WHEN purch_amt BETWEEN 1001 AND 2000 THEN 'Platinium'
+     WHEN purch_amt BETWEEN 2001 AND 3000 THEN 'Gold'
+     ELSE 'Sin Ranking'
+     END AS ranking_ventas
+FROM salesman.orders;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/232181984-14fdde5e-7bb1-470f-9329-e48a26405a84.png"></p>  
 
 ### **Función Concat**
 

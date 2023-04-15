@@ -55,6 +55,12 @@ Verificar para asegurarse de que ningún afiliado en un plan de seguro tenga dat
   + Filas de grupo por algunos criterios y valor promedio usando filas cercanas   
   + Ordenar las filas en algún orden para que las filas similares estén una al lado de la otra, y luego copie el valor de la columna faltante de la fila anterior / fila posterior calcular el valor basado en la regresión.  
 
+**Identificación de comprobaciones de lógica empresarial**
+- Fecha:rango razonale o no, comprar fechas, si las fechas futuras son 
+- Fecha: rango razonable o no, comparar fechas, si las fechas futuras son razonables o no  
+- Columnas numéricas: el rango de valores está dentro de lo esperado, busque valores atípicos,calcule STDDEV  
+- Texto: si es categórico => debe ser una pequeña cantidad de valores distintos, si es en gran medida único => los valores deben estar cerca del número de filas en el conjunto de datos, verifique la longitud y busque valores inusualmente largos o cortos (verifique al menos 10 superiores/ valores atípicos más bajos)  
+
 ### **Función Case**
 
 ### **Función Concat**

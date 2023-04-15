@@ -30,7 +30,7 @@ _¿Por qué chequear datos?_
   - Valores incoherentes entre tablas, como ID de cliente
 
 ### Tipos de controles de calidad
-** Comprobación de valores faltantes**
+**Comprobación de valores faltantes**
 ```sql
 SELECT * FROM store_values FROM units_sold IS NULL
 ```

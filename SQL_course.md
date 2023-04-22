@@ -3,7 +3,7 @@
 - [Análisis Exploratorio](#Análisis-Exploratorio)
   - [Función Case](#Función-case)
   - [Función Concat](#Función-concat)
-  - [Función Case](#Función-replace)
+  - [Función replace](#Función-replace)
  
 
 ## Análisis Exploratorio

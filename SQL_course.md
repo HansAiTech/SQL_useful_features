@@ -4,10 +4,7 @@
   - [Función Case](#Función-case)
   - [Función Case](#Función-concat)
   - [Función Case](#Función-replace)
-  - [Análisis Previo](#Análisis-Previo2)   
-  - [Análisis de Ventas](#Análisis-de-Ventas2)
-  - [Análisis de Tráfico Web](#Análisis-de-Tráfico-Web2)
-  - [Visualización en Looker](#Visualización-en-Looker2)   
+ 
 
 ## Análisis Exploratorio
 1) EDA  

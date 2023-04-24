@@ -164,4 +164,16 @@ SELECT
 RIGHT(cust_name,3) iniciales
 FROM salesman.customer;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234086391-b35e32e8-f10c-4063-97e1-2ed35e531b8d.png"></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234086391-b35e32e8-f10c-4063-97e1-2ed35e531b8d.png"></p>    
+
+### **Función Now**  
+
+Ejemplo 1)
+```sql
+SELECT
+*,
+DATEDIFF(NOW(),ord_date) dias_desde_ventas
+FROM salesman.orders;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234088062-9594feda-b2f0-4187-a755-e62e590cc011.png"></p> 
+

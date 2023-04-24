@@ -143,5 +143,25 @@ SELECT
 REPLACE (cust_name,' ',' - ') nombre_nuevo
 FROM salesman.customer;	
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234085590-6a076930-1835-45ff-8a0e-b42b870ddb67.png"></p>  
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234085590-6a076930-1835-45ff-8a0e-b42b870ddb67.png"></p>    
 
+### **Función Left/Right**  
+
+Ejemplo 1)
+```sql
+SELECT 
+*,
+LEFT(cust_name,3) iniciales
+FROM salesman.customer;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234086306-eeaeb8f5-30bb-4637-beb1-6fe4ddc52c17.png"></p> 
+
+
+Ejemplo 2)
+```sql
+SELECT 
+*,
+RIGHT(cust_name,3) iniciales
+FROM salesman.customer;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234086391-b35e32e8-f10c-4063-97e1-2ed35e531b8d.png"></p>  

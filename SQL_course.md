@@ -3,7 +3,7 @@
 - [Análisis Exploratorio](#Análisis-Exploratorio)
   - [Función Case](#Función-case)
   - [Función Concat](#Función-concat)
-  - [Función Left/Right](#Función-Left/Right)
+  - [Función Left/Right](#Función-Left,-Right)
   - [Función Now/Datediff](#Función-Now,-Datediff)  
   - [Función Year/Month](#Función-Year/Month)  
   - [Función Monthname/Dayname](#Función-Monthname/Dayname)  

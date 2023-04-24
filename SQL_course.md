@@ -3,8 +3,12 @@
 - [Análisis Exploratorio](#Análisis-Exploratorio)
   - [Función Case](#Función-case)
   - [Función Concat](#Función-concat)
-  - [Función replace](#Función-replace)
- 
+  - [Función Left/Right](#Función-Left/Right)
+  - [Función Now/Datediff](#Función-Now/Datediff)  
+  - [Función Year/Month](#Función-Year/Month)  
+  - [Función Monthname/Dayname](#Función-Monthname/Dayname)  
+  - [Función Ceiling/Floor/Round/Formate](#Función-Ceiling/Floor/Round/Format)  
+
 
 ## Análisis Exploratorio
 1) EDA  
@@ -166,7 +170,7 @@ FROM salesman.customer;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234086391-b35e32e8-f10c-4063-97e1-2ed35e531b8d.png"></p>    
 
-### **Función Now**  
+### **Función Now/Datediff**  
 
 Ejemplo 1)
 ```sql
@@ -200,7 +204,7 @@ GROUP BY año;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234117802-814114e4-90c9-4756-8f61-cc7db53ac6ab.png"></p>      
 
-### **Función Monthname / Dayname**  
+### **Función Monthname/Dayname**  
 
 Ejemplo 1)
 ```sql
@@ -215,6 +219,32 @@ ORDER BY SUM(purch_amt) DESC;
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234120458-915aa8c8-48d6-477e-9048-5408e1bf9b2b.png"></p> 
 
 
+Ejemplo 2)
+```sql
+SELECT
+DAYNAME(ord_date) dia_semana,
+ROUND(SUM(purch_amt),2) ventas
+FROM salesman.orders
+GROUP BY dia_semana;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234120558-4a3e1a83-8c99-4cc5-81de-90f71423a6fc.png"></p>    
+
+
+### **Función Ceiling/Floor/Round/Format**  
+
+Ejemplo 1)
+```sql
+SELECT
+MONTH(ord_date) mes,
+MONTHNAME(ord_date) nombre_mes,
+ROUND(SUM(purch_amt),2) ventas
+FROM salesman.orders
+GROUP BY mes, nombre_mes
+ORDER BY SUM(purch_amt) DESC;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234120458-915aa8c8-48d6-477e-9048-5408e1bf9b2b.png"></p> 
+
+  
 Ejemplo 2)
 ```sql
 SELECT

@@ -235,23 +235,15 @@ GROUP BY dia_semana;
 Ejemplo 1)
 ```sql
 SELECT
-MONTH(ord_date) mes,
-MONTHNAME(ord_date) nombre_mes,
-ROUND(SUM(purch_amt),2) ventas
-FROM salesman.orders
-GROUP BY mes, nombre_mes
-ORDER BY SUM(purch_amt) DESC;
+*,
+ROUND(purch_amt,1) ventas_round,
+FORMAT(purch_amt,1) ventas_format,
+CEILING(purch_amt) ventas_ceil,
+FLOOR(purch_amt) ventas_floor
+FROM salesman.orders;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234120458-915aa8c8-48d6-477e-9048-5408e1bf9b2b.png"></p> 
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234126796-f89c1230-6377-401c-8c16-8ffba1e37119.png"></p> 
 
   
-Ejemplo 2)
-```sql
-SELECT
-DAYNAME(ord_date) dia_semana,
-ROUND(SUM(purch_amt),2) ventas
-FROM salesman.orders
-GROUP BY dia_semana;
-```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234120558-4a3e1a83-8c99-4cc5-81de-90f71423a6fc.png"></p>    
+
 

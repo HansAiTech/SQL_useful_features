@@ -104,8 +104,6 @@ GROUP BY ranking_periodo
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/232228548-6d16056e-cc51-4247-9bf9-21fd0350740b.png"></p>  
 
 
-
-
 ### **Función Concat**  
 
 Ejemplo 1)

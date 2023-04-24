@@ -106,6 +106,25 @@ GROUP BY ranking_periodo
 
 
 
-### **Función Concat**
+### **Función Concat**  
+
+Ejemplo 1)
+```sql
+SELECT 
+*,
+CONCAT(salesman_id,' - ',name,' - ',city) as concatenado
+FROM salesman.salesman;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234083200-b30c80ac-3bc1-4bdc-a0b8-335fc4ea45f2.png"></p>    
+
+Ejemplo 2)
+```sql
+SELECT 
+*,
+CONCAT(cust_name, ' ** ', grade) as concatenado
+FROM salesman.customer;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234083457-0aba5742-4632-4b3a-bf7d-d3fd7b91fbc1.png"></p>  
+
 
 ### **Función Replace**

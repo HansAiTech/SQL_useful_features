@@ -177,3 +177,25 @@ FROM salesman.orders;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234088062-9594feda-b2f0-4187-a755-e62e590cc011.png"></p> 
 
+### **Función Year/Month**  
+
+Ejemplo 1)
+```sql
+SELECT
+MONTH(ord_date) mes,
+ROUND(SUM(purch_amt),2) ventas
+FROM salesman.orders
+GROUP BY mes;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234117691-f024f187-2f30-4797-9ddf-cfcfa683516b.png"></p> 
+
+
+Ejemplo 2)
+```sql
+SELECT
+YEAR(ord_date) año,
+SUM(purch_amt) ventas
+FROM salesman.orders
+GROUP BY año;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234117802-814114e4-90c9-4756-8f61-cc7db53ac6ab.png"></p>    

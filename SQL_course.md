@@ -149,7 +149,7 @@ FROM salesman.customer;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234085590-6a076930-1835-45ff-8a0e-b42b870ddb67.png"></p>    
 
-### **Función Left Right**  
+### **Función Left-Right**  
 
 Ejemplo 1)
 ```sql

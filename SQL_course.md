@@ -3,7 +3,7 @@
 - [Análisis Exploratorio](#Análisis-Exploratorio)
   - [Función Case](#Función-case)
   - [Función Concat](#Función-concat)
-  - [Función Left/Right](#Función-Left/Right)
+  - [Función Left/Right](#Función-LeftRight)
   - [Función Now/Datediff](#Función-Now/Datediff)  
   - [Función Year/Month](#Función-Year/Month)  
   - [Función Monthname/Dayname](#Función-Monthname/Dayname)  
@@ -149,7 +149,7 @@ FROM salesman.customer;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234085590-6a076930-1835-45ff-8a0e-b42b870ddb67.png"></p>    
 
-### **Función Left/Right**  
+### **Función LeftRight**  
 
 Ejemplo 1)
 ```sql

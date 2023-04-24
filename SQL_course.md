@@ -3,11 +3,11 @@
 - [Análisis Exploratorio](#Análisis-Exploratorio)
   - [Función Case](#Función-case)
   - [Función Concat](#Función-concat)
-  - [Función Left/Right](#Función-Left-Right)
-  - [Función Now/Datediff](#Función-Now,-Datediff)  
-  - [Función Year/Month](#Función-Year/Month)  
-  - [Función Monthname/Dayname](#Función-Monthname/Dayname)  
-  - [Función Ceiling/Floor/Round/Formate](#Función-Ceiling/Floor/Round/Format)  
+  - [Función Left-Right](#Función-Left-Right)
+  - [Función Now-Datediff](#Función-Now-Datediff)  
+  - [Función Year-Month](#Función-Year-Month)  
+  - [Función Monthname-Dayname](#Función-Monthname-Dayname)  
+  - [Función Ceiling-Floor-Round-Formate](#Función-Ceiling-Floor-Round-Format)  
 
 
 ## Análisis Exploratorio
@@ -170,7 +170,7 @@ FROM salesman.customer;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234086391-b35e32e8-f10c-4063-97e1-2ed35e531b8d.png"></p>    
 
-### **Función Now/Datediff**  
+### **Función Now-Datediff**  
 
 Ejemplo 1)
 ```sql
@@ -181,7 +181,7 @@ FROM salesman.orders;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234088062-9594feda-b2f0-4187-a755-e62e590cc011.png"></p> 
 
-### **Función Year/Month**  
+### **Función Year-Month**  
 
 Ejemplo 1)
 ```sql
@@ -204,7 +204,7 @@ GROUP BY año;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234117802-814114e4-90c9-4756-8f61-cc7db53ac6ab.png"></p>      
 
-### **Función Monthname/Dayname**  
+### **Función Monthname-Dayname**  
 
 Ejemplo 1)
 ```sql
@@ -230,7 +230,7 @@ GROUP BY dia_semana;
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234120558-4a3e1a83-8c99-4cc5-81de-90f71423a6fc.png"></p>    
 
 
-### **Función Ceiling/Floor/Round/Format**  
+### **Función Ceiling-Floor-Round-Format**  
 
 Ejemplo 1)
 ```sql

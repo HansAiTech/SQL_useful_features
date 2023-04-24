@@ -244,6 +244,33 @@ FROM salesman.orders;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234126796-f89c1230-6377-401c-8c16-8ffba1e37119.png"></p> 
 
+    
+### **Función IFNULL-ISNULL**  
+```sql
+-- Paso previo
+UPDATE salesman.salesman
+SET city=null
+WHERE city='';
+```
+
+Ejemplo 1)
+```sql
+SELECT 
+*,
+IFNULL(city,'Sin ciudad') city_complete
+FROM salesman.salesman;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234129916-26f6b6f2-03a4-4d9b-a65a-7e57c0b5eb0f.png"></p> 
   
+Ejemplo 2)
+```sql
+SELECT 
+*,
+CASE WHEN city IS NULL THEN 'Sin ciudad'
+ELSE city END city_complete
+FROM salesman.salesman;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234130018-3071af78-b38c-4665-a5e2-c89ac69c81d3.png"></p>    
+
 
 

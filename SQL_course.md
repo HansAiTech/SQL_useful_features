@@ -125,4 +125,23 @@ FROM salesman.customer;
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234083457-0aba5742-4632-4b3a-bf7d-d3fd7b91fbc1.png"></p>  
 
 
-### **Función Replace**
+### **Función Replace**  
+
+Ejemplo 1)
+```sql
+SELECT
+*,
+REPLACE (grade,100,80) campo_reemplazado
+FROM salesman.customer;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234085500-4b176f45-0b0f-4f80-8c03-c689cd16c884.png"></p>    
+
+Ejemplo 2)
+```sql
+SELECT
+*,
+REPLACE (cust_name,' ',' - ') nombre_nuevo
+FROM salesman.customer;	
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234085590-6a076930-1835-45ff-8a0e-b42b870ddb67.png"></p>  
+

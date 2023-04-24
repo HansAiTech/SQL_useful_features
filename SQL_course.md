@@ -8,6 +8,7 @@
   - [Función Year-Month](#Función-Year-Month)  
   - [Función Monthname-Dayname](#Función-Monthname-Dayname)  
   - [Función Ceiling-Floor-Round-Formate](#Función-Ceiling-Floor-Round-Format)  
+  - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
 
 
 ## Análisis Exploratorio

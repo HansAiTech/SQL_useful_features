@@ -432,3 +432,33 @@ ELSE csat_score END csat_score
 FROM call_center_verde.calls;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234419134-df091a43-d0a0-4b33-9183-dbbf8cbf2e19.png"></p> 
+  
+4) La ciudad de Nueva York se ha descargado mal por un problema con el software y hay que pasar aquellos que no tengan el formato adecuado al que corresponde.
+```sql
+SELECT 
+state,
+CASE 
+	WHEN state like 'NY' THEN 'New York'
+	WHEN state like 'NewYork' THEN 'New York'
+    	ELSE state END state
+FROM call_center_verde.calls
+WHERE state like 'NY' OR 'NewYork';
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234424007-08c3adc6-06a4-4d20-8c1b-ae9566f539b9.png"></p> 
+  
+5) Hay que convertir los minutos que están como enteros a hh:mm:ss
+```sql
+SELECT
+call_duration_minutes,
+SEC_TO_TIME(call_duration_minutes*60) call_duration
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234424200-4aa105e6-972c-45f7-9fb0-7484cef121fe.png"></p> 
+
+6) Crear nueva tabla con los campos limpios: call_verde
+```sql
+SELECT
+call_duration_minutes,
+SEC_TO_TIME(call_duration_minutes*60) call_duration
+FROM call_center_verde.calls;
+```

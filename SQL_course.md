@@ -457,8 +457,29 @@ FROM call_center_verde.calls;
 
 6) Crear nueva tabla con los campos limpios: call_verde
 ```sql
-SELECT
-call_duration_minutes,
-SEC_TO_TIME(call_duration_minutes*60) call_duration
-FROM call_center_verde.calls;
+CREATE TABLE 
+	call_verde (
+	green_code CHAR(50),
+	fecha CHAR(10),
+   	csta_score INT,
+    	state CHAR(20),
+	call_duration INT
+); 
 ```
+  
+```sql
+CREATE TABLE 
+	call_verde (
+	green_code CHAR(50),
+	fecha CHAR(10),
+   	csta_score INT,
+    	state CHAR(20),
+	call_duration INT
+); 
+```  
+```sql  
+  SELECT * FROM call_center_verde.call_verde;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234425104-9cc2e5b6-e82c-42c7-b0eb-658a4e420373.png"></p> 
+
+

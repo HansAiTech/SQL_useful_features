@@ -308,3 +308,11 @@ CREATE TABLE call_center_verde.calls (
    	)
 ;
 ```
+**Análisis inicial**
+```sql
+SELECT
+*
+FROM call_center_verde.calls; 
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234169913-2d6d8433-aa98-4e5f-b7c2-471720f843f6.png"></p>    
+

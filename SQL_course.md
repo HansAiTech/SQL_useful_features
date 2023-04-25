@@ -315,4 +315,32 @@ SELECT
 FROM call_center_verde.calls; 
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234169913-2d6d8433-aa98-4e5f-b7c2-471720f843f6.png"></p>    
+  
+  
+  #Análisis Exploratorio
+#Rango de fecha de llamadas
+#1) Chequear rango de tiempo de llamadas, min fecha y max fecha.
+```sql
+-- Fecha minima, fecha máxima y diferencia
+SELECT
+MIN(STR_TO_DATE(call_timestamp, '%m/%d/%Y')) fecha_minima,
+MAX(STR_TO_DATE(call_timestamp, '%m/%d/%Y')) fecha_maxima,
+DATEDIFF(MAX(STR_TO_DATE(call_timestamp, '%m/%d/%Y')),MIN(STR_TO_DATE(call_timestamp, '%m/%d/%Y'))) rango_fecha,
+MIN(call_duration_minutes) Min_llamada,
+MAX(call_duration_minutes) Max_llamada
+FROM call_center_verde.calls;
+```
+#2) Chequear la cantidad de columnas y filas que tenemos en nuestros datos. 
+-- (Pista: para chequear la cantidad de columnas puedes hacer lo siguiente: 
+-- SELECT COUNT() AS cols_num FROM information_schema.columns WHERE table_name = 'calls' ;
 
+```sql
+SELECT
+COUNT(ID) registros
+FROM call_center_verde.calls;
+
+SELECT
+COUNT(*) cols_num
+FROM information_schema.columns
+WHERE table_name = 'calls';
+```

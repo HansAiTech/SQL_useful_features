@@ -282,7 +282,7 @@ Almudena, la gerenta , te ha pedido que la ayudes a pasar los datos del csva la 
 limpios apartir de la tabla cruda y por ultimo que realizar un pequeño paso de análisis exploratorio de los mismos.  
 
 **Práctica**  
-Parte I-Importación de datos  
+### Parte I - Importación de datos  
 1. En primer lugar debemos crear la nueva base de datos que contendrá los datos de las llamadas del Call Center Verde. (Nombre base de datos = call_center_verde
 
 ```sql
@@ -317,7 +317,7 @@ FROM call_center_verde.calls;
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234169913-2d6d8433-aa98-4e5f-b7c2-471720f843f6.png"></p>    
   
   
-### Análisis Exploratorio
+### Parte II - Análisis Exploratorio
 1) Chequear rango de tiempo de llamadas, min fecha y max fecha.
 ```sql
 -- Fecha minima, fecha máxima y diferencia
@@ -329,18 +329,26 @@ MIN(call_duration_minutes) Min_llamada,
 MAX(call_duration_minutes) Max_llamada
 FROM call_center_verde.calls;
 ```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417484-edec3a67-c247-4146-a7c8-355adfe4b71f.png"></p>   
+
+
 2) Chequear la cantidad de columnas y filas que tenemos en nuestros datos. 
 
 ```sql
 SELECT
 COUNT(ID) registros
 FROM call_center_verde.calls;
-
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417594-4d096958-8436-4081-b20c-485f6ea6791c.png"></p>    
+  
+```sql
 SELECT
 COUNT(*) cols_num
 FROM information_schema.columns
 WHERE table_name = 'calls';
 ```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417728-47ceeb14-f5ab-4023-938a-bec420b541ae.png"></p>    
+  
 3) Chequear los valores únicos de las siguientes columnas: sentiment,reason,channel,response_time,call_center, state  
 
 ```sql
@@ -349,8 +357,7 @@ DISTINCT sentiment
 FROM call_center_verde.calls;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234414192-01e4b24c-d98f-44d8-9aae-48be40268682.png"></p>    
-   
-   
+      
 ```sql
 SELECT 
 DISTINCT reason
@@ -385,5 +392,43 @@ DISTINCT state
 FROM call_center_verde.calls;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417067-306974dc-2beb-4f14-8200-c3bb13c15e3b.png"></p>    
+  
+4) Chequear ahora la cantidad de registros y porcentajes de las columnas que miramos los valores únicos 
+  ```sql
+SELECT 
+sentiment,
+FORMAT(COUNT(ID),'es_ESP') Cantidad_registros,
+CONCAT(FORMAT(COUNT(ID)/ (SELECT COUNT(ID) FROM call_center_verde.calls)*100,2,'es_ESP'),'%') Porcentaje
+FROM call_center_verde.calls
+GROUP BY sentiment
+ORDER BY COUNT(ID) DESC;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234418075-19cbd98c-da88-4817-8e1b-1b08328995ea.png"></p>    
 
-
+### Parte III - Limpieza de datos
+1) Del campo id se debe extraer el código de 8 dígitos que viene luego de las letras en un nuevo campos que se llame green_code
+```sql
+SELECT
+ID,
+SUBSTRING(ID,5,8) green_code
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234418493-1a169c2d-3c18-49a3-831d-0b64fdfa3080.png"></p>  
+  
+2) Debemos actualizar el formato de las fechas que se encuentran como string a Fecha 
+```sql
+SELECT 
+call_timestamp,
+STR_TO_DATE(call_timestamp, '%m/%d/%Y') fecha 
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234418751-96696df5-24fe-417c-9861-17e88e466865.png"></p>  
+  
+3) Aquellas llamadas que tengan csat_score = 0 deben convertirse a nulas.
+```sql
+csat_score,
+CASE WHEN csat_score=0 THEN csat_score = NULL
+ELSE csat_score END csat_score
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234419134-df091a43-d0a0-4b33-9183-dbbf8cbf2e19.png"></p> 

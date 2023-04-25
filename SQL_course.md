@@ -317,9 +317,8 @@ FROM call_center_verde.calls;
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234169913-2d6d8433-aa98-4e5f-b7c2-471720f843f6.png"></p>    
   
   
-  #Análisis Exploratorio
-#Rango de fecha de llamadas
-#1) Chequear rango de tiempo de llamadas, min fecha y max fecha.
+### Análisis Exploratorio
+1) Chequear rango de tiempo de llamadas, min fecha y max fecha.
 ```sql
 -- Fecha minima, fecha máxima y diferencia
 SELECT
@@ -330,9 +329,7 @@ MIN(call_duration_minutes) Min_llamada,
 MAX(call_duration_minutes) Max_llamada
 FROM call_center_verde.calls;
 ```
-#2) Chequear la cantidad de columnas y filas que tenemos en nuestros datos. 
--- (Pista: para chequear la cantidad de columnas puedes hacer lo siguiente: 
--- SELECT COUNT() AS cols_num FROM information_schema.columns WHERE table_name = 'calls' ;
+2) Chequear la cantidad de columnas y filas que tenemos en nuestros datos. 
 
 ```sql
 SELECT
@@ -344,3 +341,49 @@ COUNT(*) cols_num
 FROM information_schema.columns
 WHERE table_name = 'calls';
 ```
+3) Chequear los valores únicos de las siguientes columnas: sentiment,reason,channel,response_time,call_center, state  
+
+```sql
+SELECT 
+DISTINCT sentiment
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234414192-01e4b24c-d98f-44d8-9aae-48be40268682.png"></p>    
+   
+   
+```sql
+SELECT 
+DISTINCT reason
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416601-e148eab0-daa8-418c-826a-c00f27e9ccea.png)"></p>    
+     
+```sql
+SELECT 
+DISTINCT `channel`
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416704-7fe8490e-7070-4b37-aeb1-b608be07ea42.png)"></p>    
+  
+```sql
+SELECT 
+DISTINCT response_time
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416810-0b146efe-de01-4f8a-a347-6fce02c0d0b6.png)"></p>    
+  
+```sql
+SELECT 
+DISTINCT call_center
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416875-1b7337f9-b2e3-4589-b335-6b154b4ec6ba.png)"></p>    
+  
+```sql
+SELECT 
+DISTINCT state
+FROM call_center_verde.calls;
+```
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417067-306974dc-2beb-4f14-8200-c3bb13c15e3b.png)"></p>    
+
+

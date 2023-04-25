@@ -279,6 +279,32 @@ Call Center Verde es un call center que brinda servicios a una empresa externa. 
 
 Problema  
 Almudena, la gerenta , te ha pedido que la ayudes a pasar los datos del csva la base de datos, debes pasar la tabla a mysql, luego crear una nueva con los datos
-limpios apartir de la tabla cruda y por ultimo que realizar un pequeño paso de análisis exploratorio de los mismos.
+limpios apartir de la tabla cruda y por ultimo que realizar un pequeño paso de análisis exploratorio de los mismos.  
 
+**Práctica**  
+Parte I-Importación de datos  
+1. En primer lugar debemos crear la nueva base de datos que contendrá los datos de las llamadas del Call Center Verde. (Nombre base de datos = call_center_verde
 
+```sql
+CREATE SCHEMA call_center_verde
+```
+    
+2. Crear la tabla “cruda” que contendrá nuestros datos del call center sin ningun proceso de limpieza o transformación sino en crudo.  
+a. Criterios para la creación de la tabla llamada “calls”: 
+```sql
+CREATE TABLE call_center_verde.calls (    	
+    ID CHAR(50),
+    cust_name CHAR (50),
+    sentiment CHAR (20),
+   	csat_score INT,
+   	call_timestamp CHAR (10),
+   	reason CHAR (20),
+   	city CHAR (20),
+   	state CHAR (20),
+   	channel CHAR (20),
+   	response_time CHAR (20),
+   	call_duration_minutes INT,
+   	call_center CHAR (20)
+   	)
+;
+```

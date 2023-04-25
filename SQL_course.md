@@ -468,14 +468,17 @@ CREATE TABLE
 ```
   
 ```sql
-CREATE TABLE 
-	call_verde (
-	green_code CHAR(50),
-	fecha CHAR(10),
-   	csta_score INT,
-    	state CHAR(20),
-	call_duration INT
-); 
+INSERT INTO call_verde
+SELECT
+SUBSTRING(ID,5,8) green_code,
+STR_TO_DATE(call_timestamp, '%m/%d/%Y') fecha,
+CASE WHEN csat_score=0 THEN csat_score = NULL ELSE csat_score END csta_score,
+CASE 
+	WHEN state like 'NY' THEN 'New York'
+	WHEN state like 'NewYork' THEN 'New York'
+   	ELSE state END state,
+SEC_TO_TIME(call_duration_minutes*60) call_duration
+FROM call_center_verde.calls;
 ```  
 ```sql  
   SELECT * FROM call_center_verde.call_verde;

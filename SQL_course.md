@@ -286,7 +286,7 @@ Parte I-Importación de datos
 1. En primer lugar debemos crear la nueva base de datos que contendrá los datos de las llamadas del Call Center Verde. (Nombre base de datos = call_center_verde
 
 ```sql
-CREATE SCHEMA call_center_verde
+CREATE SCHEMA call_center_verde;
 ```
     
 2. Crear la tabla “cruda” que contendrá nuestros datos del call center sin ningun proceso de limpieza o transformación sino en crudo.  

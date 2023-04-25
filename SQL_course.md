@@ -9,7 +9,7 @@
   - [Función Monthname-Dayname](#Función-Monthname-Dayname)  
   - [Función Ceiling-Floor-Round-Formate](#Función-Ceiling-Floor-Round-Format)  
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
-
+- [Call center verde](#Call-center-verde)
 
 ## Análisis Exploratorio
 1) EDA  
@@ -273,5 +273,12 @@ FROM salesman.salesman;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234130018-3071af78-b38c-4665-a5e2-c89ac69c81d3.png"></p>    
 
+
+## Caso Call Center Verde
+Call Center Verde es un call center que brinda servicios a una empresa externa. Principalmente opera en la región de estados unidos y realiza llamada diversas para conocer si el iente está conforme 0 no.  
+
+Problema  
+Almudena, la gerenta , te ha pedido que la ayudes a pasar los datos del csva la base de datos, debes pasar la tabla a mysql, luego crear una nueva con los datos
+limpios apartir de la tabla cruda y por ultimo que realizar un pequeño paso de análisis exploratorio de los mismos.
 
 

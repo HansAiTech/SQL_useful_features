@@ -356,34 +356,34 @@ SELECT
 DISTINCT reason
 FROM call_center_verde.calls;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416601-e148eab0-daa8-418c-826a-c00f27e9ccea.png)"></p>    
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416601-e148eab0-daa8-418c-826a-c00f27e9ccea.png"></p>    
      
 ```sql
 SELECT 
 DISTINCT `channel`
 FROM call_center_verde.calls;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416704-7fe8490e-7070-4b37-aeb1-b608be07ea42.png)"></p>    
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416704-7fe8490e-7070-4b37-aeb1-b608be07ea42.png"></p>    
   
 ```sql
 SELECT 
 DISTINCT response_time
 FROM call_center_verde.calls;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416810-0b146efe-de01-4f8a-a347-6fce02c0d0b6.png)"></p>    
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416810-0b146efe-de01-4f8a-a347-6fce02c0d0b6.png"></p>    
   
 ```sql
 SELECT 
 DISTINCT call_center
 FROM call_center_verde.calls;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416875-1b7337f9-b2e3-4589-b335-6b154b4ec6ba.png)"></p>    
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234416875-1b7337f9-b2e3-4589-b335-6b154b4ec6ba.png"></p>    
   
 ```sql
 SELECT 
 DISTINCT state
 FROM call_center_verde.calls;
 ```
-<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417067-306974dc-2beb-4f14-8200-c3bb13c15e3b.png)"></p>    
+<p align="center"><img src="https://user-images.githubusercontent.com/116538899/234417067-306974dc-2beb-4f14-8200-c3bb13c15e3b.png"></p>    
 
 

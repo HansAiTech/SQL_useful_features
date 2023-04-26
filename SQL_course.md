@@ -10,7 +10,7 @@
   - [Función Ceiling-Floor-Round-Formate](#Función-Ceiling-Floor-Round-Format)  
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
-- [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-cte's)
+- [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)
 
 ## Análisis Exploratorio
 1) EDA  
@@ -486,5 +486,5 @@ FROM call_center_verde.calls;
 ```
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234425104-9cc2e5b6-e82c-42c7-b0eb-658a4e420373.png"></p> 
    
-## SQL Avanzado-subconsultas y cte's
+## SQL Avanzado-subconsultas y ctes
 

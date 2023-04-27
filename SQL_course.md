@@ -783,11 +783,11 @@ Observe cómo la agregación GROUP BY en el lado izquierdo de la imagen agrupa l
 <p align='justify'> 
 Aquí hay un ejemplo rápido para darle una idea de lo que hace una función de ventana. Digamos que tenemos algunos datos de salarios y queremos encontrar para crear una columna que nos dé el salario promedio para cada título de trabajo.
 </p>
-<p align='center>
+<p align='center'>
 <img src="https://user-images.githubusercontent.com/116538899/234940848-ed5c0ab9-835b-4821-b6c4-4413ca7baaef.png"> 
 </p>
 <br>
-<p align='center>
+<p align='center'>
 <img src="https://user-images.githubusercontent.com/116538899/234941012-5f3754a0-1c0e-467a-8c36-36554028046f.png"> 
 </p>
 

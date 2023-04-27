@@ -12,7 +12,8 @@
   - [Caso: Call center verde](#Caso-Call-center-verde)
 - [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)    - [¿Que son las subqueries?](#Subqueries)
    - [¿Que son las CTE's?](#CTEs)
-   - [CTE vs Subconsultas](#CTEvsSubconsultas)
+   - [CTE vs Subconsultas](#CTEvsSubconsultas)  
+   - [Windows Functions](#WindowsFunctions)
    
 ## Análisis Exploratorio
 1) EDA  
@@ -762,4 +763,15 @@ WHERE 1 = (SELECT COUNT(DISTINCT(salary)) FROM sample b WHERE a.salary < b.salar
 ```  
   
 Pero tenga en cuenta que debido a que la subconsulta interna se evaluaría cada vez que la consulta externa procese cada fila, podría ser lento.
+
+<a name="WindowsFunctions"></a>  
+### Windows Functions  
+
+#### ¿Qué es una función de ventana?
+<p align='justify'>
+Las funciones de ventana se introdujeron por primera vez en SQL estándar en 2003. Según la documentación de PostgresSQL:<br>
+"Una función de ventana <strong>realiza un cálculo</strong> en un <strong>conjunto de filas</strong> de la tabla que de alguna manera están <strong>relacionadas con la fila actual.</strong>. Detrás de escena, la función de ventana puede <strong>acceder a más que solo la fila</strong> actual del resultado de la consulta".<br><br> 
+Las funciones de ventana son similares a la <strong>agregación realizada en la cláusula GROUP BY</strong>. Sin embargo, las filas <strong>no se agrupan en una sola fila</strong>, cada fila <strong>conserva su identidad separada</strong>. Es decir, una función de ventana puede devolver <strong>un solo valor para cada fila</strong>. Aquí hay una buena visualización de lo que quiero decir con eso.  
+
+<p align='center'>(img source="https://user-images.githubusercontent.com/116538899/234939700-b0a152f6-ccda-4462-b9f0-71f8774075c5.png")</p>
 

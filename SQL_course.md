@@ -851,6 +851,9 @@ Aquí hay una descripción general rápida de para qué es útil cada tipo de fu
 <p align='justify'>
 <strong>Funciones agregadas:</strong> podemos usar estas funciones para calcular varias agregaciones, como el promedio, el número total de filas, los valores máximos o mínimos o la suma total dentro de cada ventana o partición.
 <br>
+<br>
 <strong>Funciones de clasificación:</strong> estas funciones son útiles para clasificar filas dentro de su partición.
 <br>
+<br>
 <strong>Funciones de valor:</strong> estas funciones le permiten comparar valores de filas anteriores o siguientes dentro de la partición o el primer o último valor dentro de la partición.
+</p>

@@ -11,7 +11,7 @@
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
 - [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)  
-  -[¿Que son las subqueries?](#¿Que-son-las-subqueries?)
+  - [¿Que son las subqueries?](#¿Que-son-las-subqueries?)
 
 ## Análisis Exploratorio
 1) EDA  

@@ -10,9 +10,9 @@
   - [Función Ceiling-Floor-Round-Formate](#Función-Ceiling-Floor-Round-Format)  
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
-- [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)  
-  - [¿Que son las subqueries?](#Subqueries)
-
+- [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)    - [¿Que son las subqueries?](#Subqueries)
+   - [¿Que son las CTE's?](#CTEs)  
+   
 ## Análisis Exploratorio
 1) EDA  
 _¿Por qué explorar datos?_     
@@ -641,6 +641,7 @@ Los usuarios pueden aprovechar las CTE de modo que las consultas complejas se di
 
 **Construcción de expresiones de tabla comunes**
 Cada CTE se puede construir usando la cláusula WITH <cte-name> AS  
+	
 ```sql
 WITH sessions_per_user_per_month AS (
     SELECT
@@ -651,8 +652,65 @@ WITH sessions_per_user_per_month AS (
     FROM user_sessions
     GROUP BY user_id
 )
+```  
+	
+Se pueden especificar varios CTE dentro de una sola consulta, cada uno separado por comas de los demás. Los CTE también pueden hacer referencia a otros CTE:
 
-```
+```sql
+WITH sessions_per_user_per_month AS (
+    SELECT
+      user_id,
+      COUNT(*) AS no_of_sessions,
+      EXTRACT (MONTH FROM session_datetime) AS session_month,
+      EXTRACT (YEAR FROM session_datetime) AS session_year
+    FROM user_sessions
+    GROUP BY user_id
+),
+running_sessions_per_user_per_month AS (
+    SELECT
+      user_id, 
+      SUM(no_of_sessions) OVER (
+        PARTITION BY 
+          user_id, 
+          session_month, 
+          session_year
+      ) AS running_sessions
+    FROM sessions_per_user_per_month
+)
+```  
+	
+Luego, las consultas posteriores pueden hacer referencia a CTE como cualquier tabla o vista:
+ 
+```sql
+WITH sessions_per_user_per_month AS (
+    SELECT
+      user_id,
+      COUNT(*) AS no_of_sessions,
+      EXTRACT (MONTH FROM session_datetime) AS session_month,
+      EXTRACT (YEAR FROM session_datetime) AS session_year
+    FROM user_sessions
+    GROUP BY user_id
+),
+running_sessions_per_user_per_month AS (
+    SELECT
+      user_id, 
+      SUM(no_of_sessions) OVER (
+        PARTITION BY 
+          user_id, 
+          session_month, 
+          session_year
+      ) AS running_sessions
+    FROM sessions_per_user_per_month
+)
 
-
-  
+SELECT 
+  u.username,
+  u.email
+  u.country,
+  s.running_sessions
+FROM users u
+LEFT JOIN sessions_per_user_per_month s
+  ON u.user_id = s.user_id
+WHERE country = 'US';
+```  	
+	

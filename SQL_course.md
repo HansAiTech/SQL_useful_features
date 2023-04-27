@@ -11,7 +11,7 @@
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
 - [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)  
-  - [¿Que son las subqueries?](#¿Que-son-las-subqueries?)
+  - [¿Que son las subqueries?](#Que-son-las-subqueries)
 
 ## Análisis Exploratorio
 1) EDA  
@@ -488,6 +488,6 @@ FROM call_center_verde.calls;
 <p align="center"><img src="https://user-images.githubusercontent.com/116538899/234425104-9cc2e5b6-e82c-42c7-b0eb-658a4e420373.png"></p> 
    
 ## SQL Avanzado-subconsultas y ctes  
-### ¿Que son las subqueries?
+### Que son las subqueries
 <p align='justify'>Las subconsultas (también conocidas como consultas internas o consultas anidadas) son una herramienta para realizar operaciones en varios pasos. Por ejemplo, si quisiera tomar las sumas de varias columnas y luego promediar todos esos valores, necesitaría hacer cada agregación en un paso distinto.
 Las subconsultas se pueden usar en varios lugares dentro de una consulta, pero es más fácil comenzar con la instrucción FROM. Aquí hay un ejemplo de una subconsulta básica:</p>

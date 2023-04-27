@@ -720,4 +720,46 @@ WHERE country = 'US';
 
 #### La diferencia entre Subconsulta y CTE  
 **Ventajas de usar CTE**  
-- <p align='justify'><strong>CTE puede ser reutilizable:</strong> una ventaja de usar CTE es que CTE es reutilizable por diseño. En lugar de tener que declarar la misma subconsulta en cada lugar donde necesite usarla, puede usar CTE para definir una tabla temporal una vez y luego consultarla cuando la necesite.</p>
+- <p align='justify'><strong>CTE puede ser reutilizable:</strong> una ventaja de usar CTE es que CTE es reutilizable por diseño. En lugar de tener que declarar la misma subconsulta en cada lugar donde necesite usarla, puede usar CTE para definir una tabla temporal una vez y luego consultarla cuando la necesite.</p>  
+- <p align='justify'><strong>CTE puede ser más legible:</strong> otra ventaja de CTE es que CTE es más legible que las subconsultas. Dado que CTE puede ser reutilizable, puede escribir menos código usando CTE que usando una subconsulta. Además, las personas tienden a seguir la lógica y las ideas más fácilmente en secuencia que de manera anidada. Cuando escribe una consulta, es más fácil dividir una consulta compleja en partes más pequeñas usando CTE.</p>      
+- <p align='justify'><strong>os CTE pueden ser recursivos:</strong> un CTE puede ejecutarse recursivamente, lo que no puede hacer una subconsulta. Esto lo hace especialmente adecuado para estructuras de árbol, en las que la información de una fila determinada se basa en la información de la(s) fila(s) anterior(es). La función de recursividad se puede implementar con RECURSIVE y UNION ALL.</p>  
+
+**Ventajas de usar subconsulta**  
+<p align='justify'>Se puede usar una subconsulta en la cláusula WHERE: Podemos usar una subconsulta para devolver un valor y luego usarla en la cláusula WHERE.<br>
+En el siguiente ejemplo, nos gustaría devolver empleados que tienen un salario superior al salario promedio. Sería fácil de implementar con una subconsulta, que calcula el salario promedio.</p>  
+
+```sql
+SELECT
+   employee_name, salary 
+FROM sample
+WHERE
+   salary > (SELECT AVG(salary) FROM sample)
+```
+
+<p align='justify'>Una subconsulta puede actuar como una columna con un solo valor: también puede usar una subconsulta como una nueva columna. La única restricción es que la subconsulta debe devolver solo un valor. En el siguiente ejemplo, nos gustaría agregar una nueva columna que contenga el salario promedio.<br>
+Podemos usar una subconsulta para calcular el salario promedio y luego incluirlo en la instrucción SELECT.  
+
+
+```sql
+SELECT
+   employee_name,
+   salary,
+   (SELECT AVG(salary) FROM sample) AS average_salary
+FROM sample
+```    
+
+<p align='justify'> 
+Se puede usar una subconsulta con SUBCONSULTA CORRELADA: A diferencia de CTE, podemos usar una subconsulta interna como una subconsulta correlacionada. <strong>Eso significa que por cada registro procesado por una consulta externa, se ejecutará una consulta interna.</strong><br>
+En el siguiente ejemplo, nos gustaría devolver al empleado con el segundo salario más alto. Esto es lo que vamos a hacer para resolver este problema 
+usando una subconsulta correlacionada. Para cada empleado (en la consulta externa (a)), calculamos el número de empleados (en la consulta interna (b)), que tienen salarios más altos que un empleado determinado. Si solo hay otro empleado que tiene un salario más alto que este empleado en particular, mantenemos a este empleado.  
+
+
+```sql
+SELECT 
+   employee_name, salary
+FROM sample a
+WHERE 1 = (SELECT COUNT(DISTINCT(salary)) FROM sample b WHERE a.salary < b.salary)
+```  
+  
+Pero tenga en cuenta que debido a que la subconsulta interna se evaluaría cada vez que la consulta externa procese cada fila, podría ser lento.
+

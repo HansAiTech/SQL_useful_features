@@ -544,7 +544,7 @@ SELECT LEFT(sub.date, 2) AS cleaned_month,
 Tip: Si tienes problemas para entender lo que pasa, siempre intenta ejecutar por partes. Primero la sub query interna y luego la externa.
   
 #### Subconsultas en condicional lógica
-<p align='justify'>Puede usar subconsultas en lógica condicional (junto con WHERE, JOIN/ON o CASE). La siguiente consulta devuelve todas las entradas desde la fecha más antigua en el conjunto de datos (teóricamente, el formato deficiente de la columna de fecha en realidad hace que devuelva el valor que se ordena primero alfabéticamente)</p>:  
+<p align='justify'>Puede usar subconsultas en lógica condicional (junto con WHERE, JOIN/ON o CASE). La siguiente consulta devuelve todas las entradas desde la fecha más antigua en el conjunto de datos (teóricamente, el formato deficiente de la columna de fecha en realidad hace que devuelva el valor que se ordena primero alfabéticamente):</p>  
 
 ```sql
 SELECT *
@@ -552,7 +552,8 @@ SELECT *
  WHERE Date = (SELECT MIN(date)
                  FROM tutorial.sf_crime_incidents_2014_01
               )
-```
+```  
+
 <p align='justify'>  
 La consulta anterior funciona porque el resultado de la subconsulta es solo una celda. La mayoría de la lógica condicional funcionará con subconsultas que contengan resultados de una celda. Sin embargo, IN es el único tipo de lógica condicional que funcionará cuando la consulta interna contenga varios resultados: </p>
 

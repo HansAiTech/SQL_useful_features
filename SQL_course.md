@@ -775,3 +775,19 @@ Las funciones de ventana son similares a la <strong>agregación realizada en la 
 
 <p align='center'><img src="https://user-images.githubusercontent.com/116538899/234939700-b0a152f6-ccda-4462-b9f0-71f8774075c5.png"></p>
 
+<p align='justify'> 
+Observe cómo la agregación GROUP BY en el lado izquierdo de la imagen agrupa las tres filas en una sola fila. La función de ventana en el lado derecho de la imagen puede generarcada fila con un valor de agregación. Esto puede ahorrarle tener que hacer una unión después de GROUP BY.
+</p>
+
+**Ejemplo: GROUP BY versus función de ventana**  
+<p align='justify'> 
+Aquí hay un ejemplo rápido para darle una idea de lo que hace una función de ventana. Digamos que tenemos algunos datos de salarios y queremos encontrar para crear una columna que nos dé el salario promedio para cada título de trabajo.
+</p>
+<p align='center>
+<img src="https://user-images.githubusercontent.com/116538899/234940848-ed5c0ab9-835b-4821-b6c4-4413ca7baaef.png"> 
+</p>
+<br>
+<p align='center>
+<img src="https://user-images.githubusercontent.com/116538899/234941012-5f3754a0-1c0e-467a-8c36-36554028046f.png"> 
+</p>
+

@@ -720,4 +720,4 @@ WHERE country = 'US';
 
 #### La diferencia entre Subconsulta y CTE  
 **Ventajas de usar CTE**  
-- <p align='justify'>CTE puede ser reutilizable: una ventaja de usar CTE es que CTE es reutilizable por diseño. En lugar de tener que declarar la misma subconsulta en cada lugar donde necesite usarla, puede usar CTE para definir una tabla temporal una vez y luego consultarla cuando la necesite.</p>
+- <p align='justify'><b>CTE puede ser reutilizable:<b> una ventaja de usar CTE es que CTE es reutilizable por diseño. En lugar de tener que declarar la misma subconsulta en cada lugar donde necesite usarla, puede usar CTE para definir una tabla temporal una vez y luego consultarla cuando la necesite.</p>

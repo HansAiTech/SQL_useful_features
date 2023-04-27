@@ -635,11 +635,11 @@ SELECT COUNT(*) AS total_rows
 ### ¿Que son las CTE's?
 <p align='justify'>Escribir consultas SQL limpias, legibles y eficientes es un aspecto importante de cualquier proceso analítico o de ingeniería en un equipo. Dichas consultas se mantengan de manera efectiva y se escalen bien cuando llegue el momento. Una construcción de SQL que tanto los desarrolladores como los analistas pueden adoptar fácilmente para que esto suceda es Common Table Expression (CTE).</p>
 
-#### Expresiones de tabla comunes
-<p align='justify'>Una expresión de tabla común (CTE) es una construcción que se utiliza para almacenar temporalmente el conjunto de resultados de una consulta específica de modo que las consultas posteriores puedan hacer referencia a ella. El resultado de un CTE no se conserva en el disco, sino que su vida útil dura hasta la ejecución de la consulta (o consultas) que hace referencia a él.<br>
+#### Expresiones de tabla comunes  
+<p align='justify'>Una expresión de tabla común (CTE) es una construcción que se utiliza para almacenar temporalmente el conjunto de resultados de una consulta específica de modo que las consultas posteriores puedan hacer referencia a ella. El resultado de un CTE no se conserva en el disco, sino que su vida útil dura hasta la ejecución de la consulta (o consultas) que hace referencia a él.<br><br>
 Los usuarios pueden aprovechar las CTE de modo que las consultas complejas se dividan en subconsultas más fáciles de mantener y leer. Además, se puede hacer referencia a las Expresiones de tabla comunes varias veces dentro de una sola consulta, lo que significa que no tiene que repetirse. Dado que los CTE se nombran, también significa que los usuarios pueden dejar en claro al lector qué expresión en particular se supone que debe devolver como resultado.</p>  
 
-**Construcción de expresiones de tabla comunes**
+**Construcción de expresiones de tabla comunes**  
 Cada CTE se puede construir usando la cláusula WITH <cte-name> AS  
 	
 ```sql

@@ -806,12 +806,15 @@ Hay muchas palabras aquí, así que veamos algunas definiciones:
 <strong>expresión</strong> es el nombre de la columna en la que queremos que opere la función de ventana.
 <br>
 Esto puede no ser necesario dependiendo de qué window_function se use 
-<bt>
+<br>
 <strong>OVER</strong>es solo para indicar que esta es una función de ventana
+<br>
 <br>
 <strong>PARTITION BY</strong> divide las filas en particiones para que podamos especificar qué filas usar para calcular la función de ventana lista_partición es el nombre de la(s) columna(s) por la(s) que queremos particionar.
 <br>
+<br>
 <strong>ORDER BY</strong>se usa para que podamos ordenar las filas dentro de cada partición. <strong>Esto es opcional</strong> y no tiene que ser especificado order_list es el nombre de la(s columna(s) por las que queremos ordenar.
+<br>
 <br>
 <strong>ROWS</strong>se puede usar si queremos limitar aún más las filas dentro de nuestra partición. Esto es opcional y generalmente no se usa. frame_clause define cuánto compensar de nuestra fila actual No se preocupen por memorizar las definiciones y la sintaxis o incluso por comprender completamente lo que significa exactamente en este momento.
 </p>
@@ -827,7 +830,7 @@ Esta es la consulta que habría generado el resultado que vimos anteriormente co
 </p>
 
 <p align='justify'>
-Aquí, AVG() es el nombre de la función de ventana, SALARY es la expresión y JOB_TITLE es nuestra lista de particiones. No usamos **ORDER BY** porque no es necesario y no queremos usar FILAS porque no queremos limitar más nuestra partición.
+Aquí, AVG() es el nombre de la función de ventana, SALARY es la expresión y JOB_TITLE es nuestra lista de particiones. No usamos <strong>ORDER BY</strong> porque no es necesario y no queremos usar FILAS porque no queremos limitar más nuestra partición.
 </p>
 
 <p align='center'>

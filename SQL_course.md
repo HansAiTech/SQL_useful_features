@@ -10,7 +10,7 @@
   - [Función Ceiling-Floor-Round-Formate](#Función-Ceiling-Floor-Round-Format)  
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
-- [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)
+- [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)  
   -[¿Que son las subqueries?](#¿Que-son-las-subqueries?)
 
 ## Análisis Exploratorio

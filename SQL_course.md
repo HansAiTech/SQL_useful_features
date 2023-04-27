@@ -789,5 +789,65 @@ Aquí hay un ejemplo rápido para darle una idea de lo que hace una función de 
 <br>
 <p align='center'>
 <img src="https://user-images.githubusercontent.com/116538899/234941012-5f3754a0-1c0e-467a-8c36-36554028046f.png"> 
+</p>  
+
+#### Sintaxis de la función de ventana  
+Así es como se ve la sintaxis genérica para una función de ventana en la cláusula SELECT.
+
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/234941410-dbee9fc9-7379-48ee-8edc-b97cf6b1528f.png"> 
+</p>   
+
+<p align='justify'>
+Hay muchas palabras aquí, así que veamos algunas definiciones: 
+<br>
+<strong>window_function</strong>es el nombre de la función de ventana que queremos usar; por ejemplo, sum, avg o row_number 
+<br>
+<strong>expresión</strong> es el nombre de la columna en la que queremos que opere la función de ventana.
+<br>
+Esto puede no ser necesario dependiendo de qué window_function se use 
+<bt>
+<strong>OVER</strong>es solo para indicar que esta es una función de ventana
+<br>
+<strong>PARTITION BY</strong> divide las filas en particiones para que podamos especificar qué filas usar para calcular la función de ventana lista_partición es el nombre de la(s) columna(s) por la(s) que queremos particionar.
+<br>
+<strong>ORDER BY</strong>se usa para que podamos ordenar las filas dentro de cada partición. <strong>Esto es opcional</strong> y no tiene que ser especificado order_list es el nombre de la(s columna(s) por las que queremos ordenar.
+<br>
+<strong>ROWS</strong>se puede usar si queremos limitar aún más las filas dentro de nuestra partición. Esto es opcional y generalmente no se usa. frame_clause define cuánto compensar de nuestra fila actual No se preocupen por memorizar las definiciones y la sintaxis o incluso por comprender completamente lo que significa exactamente en este momento.
 </p>
 
+**Ejemplo rápido**
+<p align='justify'>
+Para ayudarlo a tener una mejor idea de cómo funciona realmente la sintaxis, a continuación se muestra un ejemplo de cómo se vería una función de ventana en la práctica.<br>
+Esta es la consulta que habría generado el resultado que vimos anteriormente con respecto al salario por cargo. 
+</p>
+
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/234947208-3236377a-971d-43c2-8d94-f25b8212a70d.png">
+</p>
+
+<p align='justify'>
+Aquí, AVG() es el nombre de la función de ventana, SALARY es la expresión y JOB_TITLE es nuestra lista de particiones. No usamos **ORDER BY** porque no es necesario y no queremos usar FILAS porque no queremos limitar más nuestra partición.
+</p>
+
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/234947670-cd7e0384-6d03-433e-9be5-9b7eaadc81da.png">
+</p> 
+  
+#### Principales Window Functions  
+<p align='justify'>
+Hay tres tipos principales de funciones de ventana disponibles para usar: funciones de agregación, clasificación y valor. En la imagen a continuación, puede ver algunos de los nombres de las funciones que se encuentran dentro de cada grupo.
+</p>
+
+
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/234948203-f62a5d7a-be6a-46a9-9602-53bdd79ea38e.png">
+</p>  
+ 
+Aquí hay una descripción general rápida de para qué es útil cada tipo de función de ventana  
+<p align='justify'>
+<strong>Funciones agregadas:</strong> podemos usar estas funciones para calcular varias agregaciones, como el promedio, el número total de filas, los valores máximos o mínimos o la suma total dentro de cada ventana o partición.
+<br>
+<strong>Funciones de clasificación:</strong> estas funciones son útiles para clasificar filas dentro de su partición.
+<br>
+<strong>Funciones de valor:</strong> estas funciones le permiten comparar valores de filas anteriores o siguientes dentro de la partición o el primer o último valor dentro de la partición.

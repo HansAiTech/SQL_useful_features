@@ -11,7 +11,8 @@
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
 - [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)    - [¿Que son las subqueries?](#Subqueries)
-   - [¿Que son las CTE's?](#CTEs)  
+   - [¿Que son las CTE's?](#CTEs)
+   - [CTE vs Subconsultas](#CTEvsSubconsultas)
    
 ## Análisis Exploratorio
 1) EDA  
@@ -713,4 +714,10 @@ LEFT JOIN sessions_per_user_per_month s
   ON u.user_id = s.user_id
 WHERE country = 'US';
 ```  	
-	
+
+<a name="CTEvsSubconsultas"></a> 
+### CTE vs Subconsultas  
+
+#### La diferencia entre Subconsulta y CTE  
+**Ventajas de usar CTE**  
+- <p align='justify'>CTE puede ser reutilizable: una ventaja de usar CTE es que CTE es reutilizable por diseño. En lugar de tener que declarar la misma subconsulta en cada lugar donde necesite usarla, puede usar CTE para definir una tabla temporal una vez y luego consultarla cuando la necesite.</p>

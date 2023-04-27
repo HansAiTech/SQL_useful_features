@@ -513,7 +513,8 @@ FROM tutorial.sf_crime_incidents_2014_01
 WHERE day_of_week = 'Friday'
 ```       
 <p align='justify'>
-Si tuviera que ejecutar esto por sí solo, produciría un conjunto de resultados como cualquier otra consulta. Puede sonar como una obviedad, pero es importante: su consulta interna debe ejecutarse por sí sola, ya que la base de datos la tratará como una **consulta independiente**. Una vez que se ejecuta la consulta interna, la **consulta externa se ejecutará utilizando los resultados de la consulta interna como su tabla subyacente:**</p>  
+Si tuviera que ejecutar esto por sí solo, produciría un conjunto de resultados como cualquier otra consulta. Puede sonar como una obviedad, pero es importante: su consulta interna debe ejecutarse por sí sola, ya que la base de datos la tratará como una **consulta independiente**. Una vez que se ejecuta la consulta interna, la **consulta externa se ejecutará utilizando los resultados de la consulta interna como su tabla subyacente:**</p>   
+
 ```sql
 SELECT sub.*
   FROM (

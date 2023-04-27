@@ -524,5 +524,107 @@ SELECT sub.*
 ```        
 Las subconsultas deben tener nombres, que se agregan después de los paréntesis de la misma manera que agregaría un alias a una tabla normal. En este caso, hemos utilizado el nombre "sub".
 
-**Uso de subconsultas para agregar en múltiples etapas**     
-<p align='justify'>¿Qué pasaría si quisiera averiguar cuántos incidentes se informan cada día de la semana? Mejor aún, ¿qué pasaría si quisiera saber cuántos incidentes ocurren, en promedio, un viernes de diciembre? ¿En Enero? Este proceso consta de dos pasos: contar el número de incidentes cada día (consulta interna) y luego determinar el promedio mensual (consulta externa):</p>
+#### Uso de subconsultas para agregar en múltiples etapas     
+<p align='justify'>¿Qué pasaría si quisiera averiguar cuántos incidentes se informan cada día de la semana? Mejor aún, ¿qué pasaría si quisiera saber cuántos incidentes ocurren, en promedio, un viernes de diciembre? ¿En Enero? Este proceso consta de dos pasos: contar el número de incidentes cada día (consulta interna) y luego determinar el promedio mensual (consulta externa):</p>  
+```sql
+SELECT LEFT(sub.date, 2) AS cleaned_month,
+       sub.day_of_week,
+       AVG(sub.incidents) AS average_incidents
+  FROM (
+        SELECT day_of_week,
+               date,
+               COUNT(incidnt_num) AS incidents
+          FROM tutorial.sf_crime_incidents_2014_01
+          GROUP BY 1,2
+       ) sub
+ GROUP BY 1,2
+ ORDER BY 1,2
+```    
+  
+Tip: Si tienes problemas para entender lo que pasa, siempre intenta ejecutar por partes. Primero la sub query interna y luego la externa.
+  
+#### Subconsultas en condicional lógica
+<p align='justify'>Puede usar subconsultas en lógica condicional (junto con WHERE, JOIN/ON o CASE). La siguiente consulta devuelve todas las entradas desde la fecha más antigua en el conjunto de datos (teóricamente, el formato deficiente de la columna de fecha en realidad hace que devuelva el valor que se ordena primero alfabéticamente)</p>:  
+
+```sql
+SELECT *
+  FROM tutorial.sf_crime_incidents_2014_01
+ WHERE Date = (SELECT MIN(date)
+                 FROM tutorial.sf_crime_incidents_2014_01
+              )
+```
+<p align='justify'>  
+La consulta anterior funciona porque el resultado de la subconsulta es solo una celda. La mayoría de la lógica condicional funcionará con subconsultas que contengan resultados de una celda. Sin embargo, IN es el único tipo de lógica condicional que funcionará cuando la consulta interna contenga varios resultados: </p>
+
+```sql
+SELECT *
+  FROM tutorial.sf_crime_incidents_2014_01
+ WHERE Date IN (SELECT date
+                 FROM tutorial.sf_crime_incidents_2014_01
+                ORDER BY date
+                LIMIT 5
+              )
+```  
+
+<p align='justify'>  
+Tenga en cuenta que no debe incluir un alias cuando escribe una subconsulta en una declaración condicional. Esto se debe a que la subconsulta se trata como un valor individual (o un conjunto de valores en el caso IN) en lugar de como una tabla.</p>  
+
+#### Uniendo subconsultas  
+<p align='justify'>  
+Puede recordar que puede filtrar consultas en uniones. Es bastante común unirse a una subconsulta que llega a la misma tabla que la consulta externa en lugar de filtrar en la cláusula WHERE. La siguiente consulta produce los mismos resultados que el ejemplo anterior:</p>   
+
+```sql
+SELECT *
+  FROM tutorial.sf_crime_incidents_2014_01 incidents
+  JOIN ( SELECT date
+           FROM tutorial.sf_crime_incidents_2014_01
+          ORDER BY date
+          LIMIT 5
+       ) sub
+    ON incidents.date = sub.date
+```   
+
+<p align='justify'>  
+Esto puede ser particularmente útil cuando se combina con agregaciones. Cuando se une, los requisitos para la salida de su subconsulta no son tan estrictos como cuando usa la cláusula WHERE. Por ejemplo, su consulta interna puede generar múltiples resultados. La siguiente consulta clasifica todos los resultados según la cantidad de incidentes informados en un día determinado. Lo hace agregando el número total de incidentes cada día en la consulta interna y luego usando esos valores para ordenar la consulta externa:</p>  
+
+```sql
+SELECT incidents.*,
+       sub.incidents AS incidents_that_day
+  FROM tutorial.sf_crime_incidents_2014_01 incidents
+  JOIN ( SELECT date,
+          COUNT(incidnt_num) AS incidents
+           FROM tutorial.sf_crime_incidents_2014_01
+          GROUP BY 1
+       ) sub
+    ON incidents.date = sub.date
+ ORDER BY sub.incidents DESC, time
+```  
+
+#### Subconsultas y UNIONs  
+
+Para la siguiente sección, tomaremos prestado directamente de la lección sobre UNION, nuevamente utilizando los datos de Crunchbase:
+```sql
+SELECT *
+  FROM tutorial.crunchbase_investments_part1
+
+ UNION ALL
+
+ SELECT *
+   FROM tutorial.crunchbase_investments_part2
+```   
+<p align='justify'>  
+Ciertamente, no es raro que un conjunto de datos se divida en varias partes, especialmente si los datos pasaron a través de Excel en algún momento (Excel solo puede manejar ~1 millón de filas por hoja de cálculo). Las dos tablas utilizadas anteriormente se pueden considerar como partes diferentes del mismo conjunto de datos; lo que seguramente le gustaría hacer es realizar operaciones en todo el conjunto de datos combinado en lugar de en las partes individuales.<br>
+Puedes hacer esto usando una subconsulta:</p>  
+
+```sql
+SELECT COUNT(*) AS total_rows
+  FROM (
+        SELECT *
+          FROM tutorial.crunchbase_investments_part1
+
+         UNION ALL
+
+        SELECT *
+          FROM tutorial.crunchbase_investments_part2
+       ) sub
+```

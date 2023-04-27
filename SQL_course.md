@@ -526,6 +526,7 @@ Las subconsultas deben tener nombres, que se agregan después de los paréntesis
 
 #### Uso de subconsultas para agregar en múltiples etapas     
 <p align='justify'>¿Qué pasaría si quisiera averiguar cuántos incidentes se informan cada día de la semana? Mejor aún, ¿qué pasaría si quisiera saber cuántos incidentes ocurren, en promedio, un viernes de diciembre? ¿En Enero? Este proceso consta de dos pasos: contar el número de incidentes cada día (consulta interna) y luego determinar el promedio mensual (consulta externa):</p>  
+  
 ```sql
 SELECT LEFT(sub.date, 2) AS cleaned_month,
        sub.day_of_week,
@@ -540,7 +541,7 @@ SELECT LEFT(sub.date, 2) AS cleaned_month,
  GROUP BY 1,2
  ORDER BY 1,2
 ```    
-  
+   
 Tip: Si tienes problemas para entender lo que pasa, siempre intenta ejecutar por partes. Primero la sub query interna y luego la externa.
   
 #### Subconsultas en condicional lógica

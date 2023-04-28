@@ -13,7 +13,8 @@
 - [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)    - [¿Que son las subqueries?](#Subqueries)
    - [¿Que son las CTE's?](#CTEs)
    - [CTE vs Subconsultas](#CTEvsSubconsultas)  
-   - [Windows Functions](#WindowsFunctions)
+   - [Windows Functions](#WindowsFunctions)  
+   - [Caso práctico](#Casopractico)
    
 ## Análisis Exploratorio
 1) EDA  

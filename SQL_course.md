@@ -11,10 +11,11 @@
   - [Función IFNULL-ISNULL](#Función-IFNULL-ISNULL)  
   - [Caso: Call center verde](#Caso-Call-center-verde)
 - [SQL Avanzado - subconsultas y cte's](#SQL-Avanzado-subconsultas-y-ctes)    - [¿Que son las subqueries?](#Subqueries)
-   - [¿Que son las CTE's?](#CTEs)
-   - [CTE vs Subconsultas](#CTEvsSubconsultas)  
-   - [Windows Functions](#WindowsFunctions)  
-   - [Caso práctico](#Casopractico)
+  - [¿Que son las CTE's?](#CTEs)
+  - [CTE vs Subconsultas](#CTEvsSubconsultas)  
+  - [Windows Functions](#WindowsFunctions)  
+  - [Caso práctico](#Casopractico)
+  - [Caso de Uso #5](#Caso5)
    
 ## Análisis Exploratorio
 1) EDA  
@@ -905,3 +906,48 @@ FROM salesman.orders;
 
 <p align='center'><img src="https://user-images.githubusercontent.com/116538899/235190459-cc425cb5-eff2-4ce8-85d5-38b294463143.png"></p> 
 
+<a name Caso5></a>
+### Caso Data Bank
+
+#### Introducción   
+<p align='justify'>
+Hay algunas advertencias interesantes que acompañan a este modelo de negocio, ¡y aquí es donde el equipo de Data Bank necesita su ayuda! El equipo de administración de Data Bank quiere aumentar su base total de clientes, pero también necesita ayuda para rastrear cuánto almacenamiento de datos necesitarán sus clientes.
+<br>
+Este caso de uso se trata de calcular métricas, crecimiento y ayudar a la empresa a analizar sus datos de una manera inteligente para pronosticar y planificar mejor sus desarrollos futuros!	
+</p>
+
+#### Descripción de Datos
+El equipo de Data Bank ha preparado un modelo de datos para este estudio de caso, así como algunas filas de ejemplo del conjunto de datos completo a continuación para que se familiarice con sus tablas.  
+
+<p align='center'><img src="https://user-images.githubusercontent.com/116538899/235194568-92881f85-d2c7-4bbe-8222-d6bc97f30a68.png"></p> 
+
+#### Práctica
+Ten en cuenta que las transaccinoes deben netearse. Un deposito es ingreso de dinero, withdraw es extracción de dinero y purchase es una compra por lo tengo extracción de dinero.
+  
+**A. Exploración de nodos de clientes**
+1. ¿Cuántos nodos únicos hay en el sistema del banco de datos?  
+
+2. ¿Cuál es el número de nodos por nombre de región?    
+
+3. ¿Cuántos clientes únicos se asignan a cada nombre de región?  
+  
+4. ¿Cuántos días en promedio se reasignan los clientes a un nodo diferente?(Resuelve éste ejercicio con una CTE para calcular los dias de rotacion)  
+  
+5. ¿Que puedes observar del resultado? ¿Esta bien el numero que te da? Hay algun outlier (valor fuera de lo normal) de fechas? ¿Como volverías a calular el ejercicio 4 sin estos valores?    
+
+6. ¿Puedes filtrar devolver los nodos de clientes que tienen como nombre de region australia pero con una subconsulta condicional?
+
+  
+B. Transacciones de clientes  
+
+1. ¿Cuál es el recuento único y el monto total para cada tipo de transacción?  
+
+2. ¿Cuál es el total histórico promedio de recuentos y montos de depósitos para todos los clientes?  
+
+3. Para cada mes, ¿cuántos clientes de Data Bank hacen más de 1 depósito y 1 compra o 1 retiro en un solo mes?  
+
+4. ¿Puedes a la tabla de transacciones original incluir una columna que devuelva el total de cantidad de transacciones de cada cliente con una función ventana?  
+
+5. Para el id de cliente = 1 puedes traer todas las transacciones y luego en una columna aparte la cantidad de sus transacciones por mes con una función ventana?  
+
+6. ¿Puedes calcular el saldo de cada cliente de cada mes son una subconsulta?  

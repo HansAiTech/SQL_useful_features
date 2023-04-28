@@ -857,3 +857,50 @@ Aquí hay una descripción general rápida de para qué es útil cada tipo de fu
 <br>
 <strong>Funciones de valor:</strong> estas funciones le permiten comparar valores de filas anteriores o siguientes dentro de la partición o el primer o último valor dentro de la partición.
 </p>
+
+<a name=casopractico></a>
+#### Caso práctico  
+Ejemplo 1) Subsonculta   
+```sql
+SELECT 
+*
+FROM salesman.orders
+WHERE  salesman_id IN (SELECT salesman_id FROM salesman WHERE city = 'Paris
+```
+
+<p align='center'><img src="https://user-images.githubusercontent.com/116538899/235189468-b093aa33-6baa-470e-87ab-c029670b3193.png"></p> 
+  
+Ejemplo 2) Creación de CTE 
+```sql
+WITH comision_1 as (
+SELECT *,
+ROUND(purch_amt*0.05,2) as comision -- Aquellas ventas que superen los 200 USD llevan un 5% de comisión
+FROM salesman.orders
+WHERE purch_amt>200
+)
+,comision_2 as (
+SELECT *,
+ROUND(purch_amt*0.01,2) as comision -- Aquellas ventas que No superen los 200 USD llevan un 1% de comisión
+FROM salesman.orders
+WHERE purch_amt<=200
+)
+SELECT *
+FROM comision_1
+UNION
+SELECT *
+FROM comision_2
+;
+```
+
+<p align='center'><img src="https://user-images.githubusercontent.com/116538899/235190186-6382fb68-b3bd-4e1d-a687-ac38525dc236.png"></p> 
+  
+Ejemplo 3) Windows Function 
+```sql
+SELECT
+*,
+ROUND(AVG(purch_amt) OVER (PARTITION BY salesman_id),2) AS avg_comercial
+FROM salesman.orders;
+```
+
+<p align='center'><img src="https://user-images.githubusercontent.com/116538899/235190459-cc425cb5-eff2-4ce8-85d5-38b294463143.png"></p> 
+

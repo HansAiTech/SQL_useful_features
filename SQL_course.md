@@ -867,7 +867,7 @@ Ejemplo 1) Subsonculta
 SELECT 
 *
 FROM salesman.orders
-WHERE  salesman_id IN (SELECT salesman_id FROM salesman WHERE city = 'Paris
+WHERE  salesman_id IN (SELECT salesman_id FROM salesman WHERE city = 'Paris'
 ```
 
 <p align='center'><img src="https://user-images.githubusercontent.com/116538899/235189468-b093aa33-6baa-470e-87ab-c029670b3193.png"></p> 

@@ -895,7 +895,9 @@ FROM comision_2
 ;
 ```
 
-<p align='center'><img src="https://user-images.githubusercontent.com/116538899/235190186-6382fb68-b3bd-4e1d-a687-ac38525dc236.png"></p> 
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235190186-6382fb68-b3bd-4e1d-a687-ac38525dc236.png">
+</p> 
   
 Ejemplo 3) Windows Function 
 ```sql
@@ -933,7 +935,9 @@ SELECT
 COUNT(DISTINCT node_id) nodos_unicos
 FROM data_bank.customer_nodes;
 ```
-<p align='justify'>< img src="https://user-images.githubusercontent.com/116538899/235327306-6074e80d-0b6c-4c25-9eec-c1066e8635bc.png"></p>
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327306-6074e80d-0b6c-4c25-9eec-c1066e8635bc.png">
+</p>
    
 
 2. ¿Cuál es el número de nodos por nombre de región?    
@@ -945,7 +949,9 @@ FROM data_bank.customer_nodes c
 LEFT JOIN data_bank.regions r ON c.region_id = r.region_id
 GROUP BY Region; 
 ```
-<p align='justify'>< img src="https://user-images.githubusercontent.com/116538899/235327343-987d0be0-3b31-4cde-becd-8301ecbb34ee.png"></p>
+<p align='center'>
+< img src="https://user-images.githubusercontent.com/116538899/235327343-987d0be0-3b31-4cde-becd-8301ecbb34ee.png">
+</p>
 
 
 

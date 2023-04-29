@@ -939,7 +939,6 @@ FROM data_bank.customer_nodes;
 <img src="https://user-images.githubusercontent.com/116538899/235327306-6074e80d-0b6c-4c25-9eec-c1066e8635bc.png">
 </p>
    
-
 2. ¿Cuál es el número de nodos por nombre de región?    
 ```sql
 SELECT
@@ -950,20 +949,83 @@ LEFT JOIN data_bank.regions r ON c.region_id = r.region_id
 GROUP BY Region; 
 ```
 <p align='center'>
-< img src="https://user-images.githubusercontent.com/116538899/235327343-987d0be0-3b31-4cde-becd-8301ecbb34ee.png">
+<img src="https://user-images.githubusercontent.com/116538899/235327343-987d0be0-3b31-4cde-becd-8301ecbb34ee.png">
 </p>
 
+3. ¿Cuántos clientes únicos se asignan a cada nombre de región?    
+```sql
+SELECT
+region_name Region, 
+COUNT(DISTINCT customer_id) Clientes_unicos
+FROM data_bank.customer_nodes c
+LEFT JOIN data_bank.regions r ON c.region_id = r.region_id
+GROUP BY Region
+ORDER BY Clientes_unicos DESC;
+```
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327409-5272d3ba-9774-4d68-a2e7-d01f260c8ad2.png">
+</p>  
+
+4. ¿Cuántos días en promedio se reasignan los clientes a un nodo diferente?(Resuelve éste ejercicio con una CTE para calcular los dias de rotacion)   
+```sql
+WITH reasignacion AS( 
+SELECT 
+*,
+DATEDIFF(end_date, start_date) dias_reasignacion
+FROM data_bank.customer_nodes
+)
+SELECT
+AVG(dias_reasignacion) dias_promedio
+FROM reasignacion; 
+```
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327445-3147f481-9c73-478e-913b-07ae366a6f61.png">
+</p>   
+
+5. ¿Que puedes observar del resultado? ¿Esta bien el numero que te da? Hay algun outlier (valor fuera de lo normal) de fechas? ¿Como volverías a calular el ejercicio 4 sin estos valores?   
+Como pudimos observar el anterior resultado generó un número promedio de días extremo por lo cual analizaremos a fondo el campo end_date con el siguiente código sql. 
+
+```sql
+SELECT 
+*,
+COUNT(txn_amount) OVER (PARTITION BY customer_id) Total_transaccion
+FROM data_bank.customer_transactions;
+``` 
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327525-ed07980e-9718-4590-aed7-a337b0dfd5c8.png">
+</p>   
+
+Se observa que el problema en el campo end_date es la fecha 9999-12-31 con lo cual procedemos a excluirla de la instrucción del ejericicio 4. 
+
+```sql
+WITH reasignacion AS( 
+SELECT 
+*,
+DATEDIFF(end_date, start_date) dias_reasignacion
+FROM data_bank.customer_nodes
+WHERE end_date <> '9999-12-31'
+)
+SELECT
+AVG(dias_reasignacion) dias_promedio
+FROM reasignacion; 
+``` 
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327553-f3eb950d-6a0e-45f5-9952-59a98f2dd10f.png">
+</p>   
 
 
-3. ¿Cuántos clientes únicos se asignan a cada nombre de región?  
-  
-4. ¿Cuántos días en promedio se reasignan los clientes a un nodo diferente?(Resuelve éste ejercicio con una CTE para calcular los dias de rotacion)  
-  
-5. ¿Que puedes observar del resultado? ¿Esta bien el numero que te da? Hay algun outlier (valor fuera de lo normal) de fechas? ¿Como volverías a calular el ejercicio 4 sin estos valores?    
+6. ¿Puedes filtrar devolver los nodos de clientes que tienen como nombre de region australia pero con una subconsulta condicional?  
+```sql
+SELECT 
+*
+FROM data_bank.customer_nodes
+WHERE region_id IN (SELECT region_id FROM regions WHERE region_name = 'Australia');
+```
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327434-67c07a67-3706-4885-86b4-eefc8d0ce3f8.png">
+</p>  
 
-6. ¿Puedes filtrar devolver los nodos de clientes que tienen como nombre de region australia pero con una subconsulta condicional?
 
-  
 B. Transacciones de clientes  
 
 1. ¿Cuál es el recuento único y el monto total para cada tipo de transacción?  

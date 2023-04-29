@@ -836,7 +836,7 @@ Aquí, AVG() es el nombre de la función de ventana, SALARY es la expresión y J
 </p>
 
 <p align='center'>
-<img src="https://user-images.githubusercontent.com/116538899/234947670-cd7e0384-6d03-433e-9be5-9b7eaadc81da.png" height = "70%" >
+<img src="https://user-images.githubusercontent.com/116538899/234947670-cd7e0384-6d03-433e-9be5-9b7eaadc81da.png" height = "70%" width= "70%">
 </p> 
   
 #### Principales Window Functions  

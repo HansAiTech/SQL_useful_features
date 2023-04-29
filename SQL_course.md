@@ -16,6 +16,7 @@
   - [Windows Functions](#WindowsFunctions)  
   - [Caso práctico](#Casopractico)
   - [Caso Data Bank](#Caso5)
+  
    
 ## Análisis Exploratorio
 1) EDA  
@@ -907,6 +908,7 @@ FROM salesman.orders;
 <p align='center'><img src="https://user-images.githubusercontent.com/116538899/235190459-cc425cb5-eff2-4ce8-85d5-38b294463143.png"></p> 
 
 <a name=Caso5></a>
+  
 ### Caso Data Bank
 
 #### Introducción   
@@ -926,8 +928,26 @@ Ten en cuenta que las transaccinoes deben netearse. Un deposito es ingreso de di
   
 **A. Exploración de nodos de clientes**
 1. ¿Cuántos nodos únicos hay en el sistema del banco de datos?  
+```sql
+SELECT
+COUNT(DISTINCT node_id) nodos_unicos
+FROM data_bank.customer_nodes;
+```
+<p align='justify'>< img src="https://user-images.githubusercontent.com/116538899/235327306-6074e80d-0b6c-4c25-9eec-c1066e8635bc.png"></p>
+   
 
 2. ¿Cuál es el número de nodos por nombre de región?    
+```sql
+SELECT
+region_name Region,
+COUNT(DISTINCT node_id) Nodos
+FROM data_bank.customer_nodes c
+LEFT JOIN data_bank.regions r ON c.region_id = r.region_id
+GROUP BY Region; 
+```
+<p align='justify'>< img src="https://user-images.githubusercontent.com/116538899/235327343-987d0be0-3b31-4cde-becd-8301ecbb34ee.png"></p>
+
+
 
 3. ¿Cuántos clientes únicos se asignan a cada nombre de región?  
   

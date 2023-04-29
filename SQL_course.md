@@ -1029,6 +1029,18 @@ WHERE region_id IN (SELECT region_id FROM regions WHERE region_name = 'Australia
 B. Transacciones de clientes  
 
 1. ¿Cuál es el recuento único y el monto total para cada tipo de transacción?  
+```sql
+SELECT 
+txn_type Transaccion, 
+FORMAT(COUNT(txn_type),'es_ESP') Recuento,
+FORMAT(SUM(txn_amount),2,'es_ESP') Monto_total
+FROM data_bank.customer_transactions
+GROUP BY Transaccion;
+```
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235327632-acdbbb02-90bf-4861-93f2-ce79ba92e0f1.png">
+</p>  
+ 
 
 2. ¿Cuál es el total histórico promedio de recuentos y montos de depósitos para todos los clientes?  
 

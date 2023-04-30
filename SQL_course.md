@@ -1131,6 +1131,67 @@ WHERE cantidad_transacciones > 1;
 
 4. ¿Puedes a la tabla de transacciones original incluir una columna que devuelva el total de cantidad de transacciones de cada cliente con una función ventana?  
 
+```sql
+SELECT 
+*,
+COUNT(*) OVER (PARTITION BY customer_id) Total_transaccion
+FROM data_bank.customer_transactions;
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235329742-97d9328a-1303-47e8-b48b-d16ab332e1de.png">
+</p>  
+
 5. Para el id de cliente = 1 puedes traer todas las transacciones y luego en una columna aparte la cantidad de sus transacciones por mes con una función ventana?  
 
+```sql
+SELECT 
+*
+-- COUNT(*) OVER (PARTITION BY MONTH(txn_date)) cantidad_transacciones_mes
+FROM customer_transactions
+WHERE customer_id = 1;
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235329891-9f2130f5-50a9-446c-aa60-6569e19fe09d.png">
+</p>    
+
 6. ¿Puedes calcular el saldo de cada cliente de cada mes son una subconsulta?  
+
+Paso 1: 
+```sql
+SELECT 
+*,
+CASE 
+	WHEN txn_type = 'deposit' THEN txn_amount
+	WHEN txn_type = 'withdrawal' THEN -txn_amount
+	WHEN txn_type = 'purchase' THEN -txn_amount
+    END 
+    txn_amount_neto
+FROM customer_transactions;
+
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235330132-72e68caa-ffd7-4101-a5c5-9f6d1bcbb759.png">
+</p>  
+
+Paso 2:
+```sql
+SELECT
+MONTHNAME(txn_date) Month,
+customer_id,
+SUM(txn_amount_neto) saldo
+FROM (
+SELECT 
+*,
+CASE 
+	WHEN txn_type = 'deposit' THEN txn_amount
+	WHEN txn_type = 'withdrawal' THEN -txn_amount
+	WHEN txn_type = 'purchase' THEN -txn_amount
+    END 
+    txn_amount_neto
+    FROM customer_transactions) t
+GROUP BY Month, customer_id;
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235330157-8fac60d0-79a8-4883-a7e0-e52a51aa427d.png">
+</p>  
+

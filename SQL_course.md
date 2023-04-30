@@ -1044,7 +1044,90 @@ GROUP BY Transaccion;
 
 2. ¿Cuál es el total histórico promedio de recuentos y montos de depósitos para todos los clientes?  
 
+Paso 1 - Primero evaluamos la cantidad de depositos y total de depositos por clientes;  
+```sql
+SELECT
+customer_id, 
+COUNT(txn_type) cantidad_depositos,
+SUM(txn_amount) total_depositos
+FROM data_bank.customer_transactions
+WHERE txn_type='deposit'
+GROUP BY customer_id;
+```
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235328354-d04a4fb9-8603-44db-9c8d-08ba8ba4bc0e.png">
+</p>  
+
+Paso 2 - Luego generamos una CTE a partir de la anterior instrucción
+```sql
+WITH promedio_clientes as (
+SELECT
+customer_id, 
+COUNT(txn_type) cantidad_depositos,
+SUM(txn_amount) total_depositos
+FROM data_bank.customer_transactions
+WHERE txn_type='deposit'
+GROUP BY customer_id
+)
+SELECT 
+ROUND(AVG(cantidad_depositos),2) promedio_depositos,
+ROUND(AVG(total_depositos),2) promedio_monto_depositos
+FROM promedio_clientes;
+```
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235328746-be4a1e30-26ab-426d-83f4-adcd5c8ae3f0.png">
+</p>   
+
+-- Otra solución utilizando Subconsultas  
+```sql
+SELECT 
+ROUND(AVG(cantidad_depositos),2) promedio_depositos,
+ROUND(AVG(total_depositos),2) promedio_monto_depositos
+FROM (SELECT
+customer_id, 
+COUNT(txn_type) cantidad_depositos,
+SUM(txn_amount) total_depositos
+FROM data_bank.customer_transactions
+WHERE txn_type='deposit'
+GROUP BY customer_id) as t;
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235329173-66b174fc-ed7f-4aaf-b068-2921e2ab0a84.png">
+</p>   
+
 3. Para cada mes, ¿cuántos clientes de Data Bank hacen más de 1 depósito y 1 compra o 1 retiro en un solo mes?  
+Paso 1: 
+```sql
+SELECT 
+MONTHNAME(txn_date) Month,
+customer_id,
+COUNT(*) cantidad_transacciones
+FROM customer_transactions
+GROUP BY customer_id, month;
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235329592-b976e234-2fad-4344-bf04-5b39e6ad1435.png">
+</p>  
+
+Paso 2:  
+
+```sql
+WITH cantidad_transacciones_clientes as (
+SELECT 
+MONTHNAME(txn_date) Month,
+customer_id,
+COUNT(*) cantidad_transacciones
+FROM customer_transactions
+GROUP BY customer_id, month
+)
+SELECT
+COUNT(customer_id) Cantidad_Clientes
+FROM cantidad_transacciones_clientes
+WHERE cantidad_transacciones > 1; 
+```  
+<p align='center'>
+<img src="https://user-images.githubusercontent.com/116538899/235329614-62db04bf-adee-40a9-a548-cf7af392fa8c.png">
+</p>  
 
 4. ¿Puedes a la tabla de transacciones original incluir una columna que devuelva el total de cantidad de transacciones de cada cliente con una función ventana?  
 

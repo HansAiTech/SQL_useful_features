@@ -1095,7 +1095,8 @@ GROUP BY customer_id) as t;
 <img src="https://user-images.githubusercontent.com/116538899/235329173-66b174fc-ed7f-4aaf-b068-2921e2ab0a84.png">
 </p>   
 
-3. Para cada mes, ¿cuántos clientes de Data Bank hacen más de 1 depósito y 1 compra o 1 retiro en un solo mes?    
+3. Para cada mes, ¿cuántos clientes de Data Bank hacen más de 1 depósito y 1 compra o 1 retiro en un solo mes?  
+    
 Paso 1: 
 ```sql
 SELECT 

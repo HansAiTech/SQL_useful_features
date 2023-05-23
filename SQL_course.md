@@ -1194,4 +1194,4 @@ GROUP BY Month, customer_id;
 <p align='center'>
 <img src="https://user-images.githubusercontent.com/116538899/235330157-8fac60d0-79a8-4883-a7e0-e52a51aa427d.png">
 </p>  
-
+ 

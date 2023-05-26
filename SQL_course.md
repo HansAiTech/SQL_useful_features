@@ -17,7 +17,7 @@
   - [Caso práctico](#Casopractico)
   - [Caso Data Bank](#Caso5)
    
-    
+     
 ## Análisis Exploratorio
 1) EDA  
 _¿Por qué explorar datos?_     

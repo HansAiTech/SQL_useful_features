@@ -16,7 +16,7 @@
   - [Windows Functions](#WindowsFunctions)  
   - [Caso práctico](#Casopractico)
   - [Caso Data Bank](#Caso5)
-   
+    
      
 ## Análisis Exploratorio
 1) EDA  
